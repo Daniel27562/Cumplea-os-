@@ -3,246 +3,1200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Lineeth 💗</title>
 
 <style>
-*{box-sizing:border-box}
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#fff0f5,#fce4ec,#f8e8ff);
-color:#604052;
-text-align:center;
-}
-
-section{
-min-height:100vh;
-padding:60px 20px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
-
-h1{
-font-size:48px;
-margin:10px;
-color:#c85b83;
-}
-
-h2{
-font-size:32px;
-color:#b34f76;
-}
-
-p{
-max-width:600px;
-font-size:18px;
-line-height:1.7;
-}
-
-.heart{
-font-size:70px;
-animation:latido 1.5s infinite;
-}
-
-@keyframes latido{
-50%{transform:scale(1.15)}
+    font-family:Georgia, "Times New Roman", serif;
+    background:#fff6f8;
+    color:#593d48;
+    overflow-x:hidden;
 }
 
 button{
-border:0;
-border-radius:30px;
-padding:15px 28px;
-background:#d96b95;
-color:white;
-font-size:16px;
-margin:15px;
-box-shadow:0 8px 20px #d96b9544;
+    font-family:inherit;
 }
 
-button:active{
-transform:scale(.95);
+/* =========================
+   FONDO
+========================= */
+
+.page{
+    width:100%;
+    overflow:hidden;
 }
 
-.card{
-background:#ffffffb8;
-backdrop-filter:blur(10px);
-border-radius:30px;
-padding:30px;
-max-width:650px;
-box-shadow:0 15px 40px #9b567322;
+.section{
+    min-height:100vh;
+    padding:80px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:
+        radial-gradient(circle at 20% 20%,#ffdce7 0%,transparent 35%),
+        radial-gradient(circle at 80% 80%,#eadcff 0%,transparent 35%),
+        #fff5f8;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-heart{
+    font-size:72px;
+    animation:heartbeat 1.4s infinite;
+    margin-bottom:25px;
+}
+
+.intro-small{
+    letter-spacing:5px;
+    font-size:12px;
+    text-transform:uppercase;
+    color:#a66a7c;
+    margin-bottom:15px;
+}
+
+.intro-title{
+    font-size:48px;
+    color:#9d4e68;
+    margin-bottom:12px;
+}
+
+.intro-subtitle{
+    font-size:17px;
+    color:#86616e;
+    margin-bottom:35px;
+}
+
+.enter-btn{
+    border:none;
+    padding:16px 32px;
+    border-radius:40px;
+    background:#a94f70;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(169,79,112,.25);
+    transition:.3s;
+}
+
+.enter-btn:active{
+    transform:scale(.94);
+}
+
+/* =========================
+   CORAZONES FLOTANTES
+========================= */
+
+.floating-heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:18px;
+    opacity:.45;
+    pointer-events:none;
+    animation:floatUp 8s linear forwards;
+    z-index:1;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(25deg);
+        opacity:0;
+    }
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.16);
+    }
+}
+
+/* =========================
+   TEXTOS
+========================= */
+
+.eyebrow{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:11px;
+    color:#b06b7e;
+    margin-bottom:16px;
+}
+
+h1{
+    font-size:52px;
+    color:#914761;
+    line-height:1.05;
+    text-align:center;
+}
+
+h2{
+    font-size:35px;
+    color:#914761;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:17px;
+    line-height:1.8;
+    max-width:650px;
+    text-align:center;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.main-btn{
+    margin-top:28px;
+    border:none;
+    background:#9e4e6b;
+    color:white;
+    padding:14px 27px;
+    border-radius:30px;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(158,78,107,.22);
+}
+
+.main-btn:active{
+    transform:scale(.95);
+}
+
+/* =========================
+   SECCIÓN INICIO
+========================= */
+
+.hero{
+    background:
+        radial-gradient(circle at top right,#ffe0e9,transparent 40%),
+        radial-gradient(circle at bottom left,#eadfff,transparent 40%);
+}
+
+.hero-name{
+    margin:15px 0;
+}
+
+.hero-line{
+    width:70px;
+    height:1px;
+    background:#b9798b;
+    margin:25px auto;
+}
+
+/* =========================
+   HISTORIA
+========================= */
+
+.story{
+    background:#fff;
+}
+
+.story-card{
+    max-width:700px;
+    padding:35px 25px;
+    border-radius:30px;
+    background:rgba(255,240,245,.8);
+    box-shadow:0 20px 60px rgba(120,70,90,.09);
+}
+
+.story-card p{
+    margin:18px auto;
+}
+
+.highlight{
+    color:#9f4e6b;
+    font-weight:bold;
+}
+
+/* =========================
+   CORAZÓN INTERACTIVO
+========================= */
+
+.interactive{
+    background:
+        linear-gradient(180deg,#fff5f7,#f9efff);
+}
+
+.big-heart{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 20px 60px rgba(140,70,100,.13);
+    margin:20px 0;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.big-heart span{
+    font-size:80px;
+    transition:.4s;
+}
+
+.big-heart:active{
+    transform:scale(.9);
+}
+
+.big-heart.open{
+    transform:scale(1.08);
+}
+
+.big-heart.open span{
+    animation:heartbeat .8s infinite;
+}
+
+/* =========================
+   MENSAJE INTERACTIVO
+========================= */
+
+.secret-message{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:1s ease;
+}
+
+.secret-message.show{
+    max-height:300px;
+    opacity:1;
+    margin-top:20px;
+}
+
+.secret-message p{
+    color:#934b66;
+}
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery-section{
+    background:#fff8fa;
 }
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-max-width:650px;
+    width:100%;
+    max-width:760px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:30px;
 }
 
-.gallery img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:0 8px 20px #0002;
-transition:.3s;
+.photo-card{
+    background:#fff;
+    padding:9px;
+    box-shadow:0 12px 35px rgba(90,50,70,.13);
+    transform:rotate(-2deg);
+    transition:.4s;
 }
 
-.gallery img:hover{
-transform:scale(1.03);
+.photo-card:nth-child(2){
+    transform:rotate(2deg);
 }
 
-.hidden{
-display:none;
+.photo-card:nth-child(3){
+    transform:rotate(1deg);
 }
 
-.final{
-font-size:22px;
-color:#a84770;
-font-weight:bold;
+.photo-card:nth-child(4){
+    transform:rotate(-3deg);
 }
 
-.small{
-font-size:14px;
-opacity:.7;
+.photo-card:nth-child(5){
+    transform:rotate(2deg);
 }
+
+.photo-card:nth-child(6){
+    transform:rotate(-1deg);
+}
+
+.photo-card:nth-child(7){
+    transform:rotate(3deg);
+}
+
+.photo-card:nth-child(8){
+    transform:rotate(-2deg);
+}
+
+.photo-card:nth-child(9){
+    transform:rotate(1deg);
+}
+
+.photo-card:active{
+    transform:scale(1.04) rotate(0deg);
+}
+
+.photo-card img{
+    display:block;
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.photo-caption{
+    padding:10px 4px 5px;
+    font-size:13px;
+    color:#88606d;
+}
+
+/* =========================
+   FOTO DESTACADA
+========================= */
+
+.feature-section{
+    background:#f8edf2;
+}
+
+.feature-photo{
+    width:min(90vw,470px);
+    padding:12px;
+    background:white;
+    box-shadow:0 25px 70px rgba(80,40,60,.18);
+    transform:rotate(-2deg);
+}
+
+.feature-photo img{
+    width:100%;
+    display:block;
+    max-height:570px;
+    object-fit:cover;
+}
+
+.feature-text{
+    margin-top:35px;
+}
+
+/* =========================
+   CUMPLEAÑOS
+========================= */
+
+.birthday{
+    background:
+        radial-gradient(circle at 15% 20%,#ffe0ea,transparent 30%),
+        radial-gradient(circle at 85% 80%,#e8dcff,transparent 35%),
+        #fff7f9;
+}
+
+.cake{
+    font-size:65px;
+    margin-bottom:20px;
+    animation:heartbeat 1.8s infinite;
+}
+
+.birthday-card{
+    max-width:700px;
+    background:rgba(255,255,255,.72);
+    padding:38px 25px;
+    border-radius:35px;
+    box-shadow:0 20px 60px rgba(120,70,90,.1);
+}
+
+.birthday-card p{
+    margin:18px auto;
+}
+
+/* =========================
+   FRASE
+========================= */
+
+.quote-section{
+    background:#fff;
+}
+
+.quote{
+    max-width:650px;
+    font-size:27px;
+    line-height:1.5;
+    font-style:italic;
+    color:#96516a;
+    text-align:center;
+}
+
+.quote-author{
+    margin-top:20px;
+    font-size:13px;
+    letter-spacing:2px;
+    color:#9f7784;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-section{
+    min-height:100vh;
+    background:
+        linear-gradient(145deg,#fff0f5,#f0e9ff);
+    text-align:center;
+}
+
+.final-heart{
+    font-size:75px;
+    animation:heartbeat 1.5s infinite;
+    margin-bottom:25px;
+}
+
+.final-text{
+    max-width:600px;
+}
+
+.signature{
+    margin-top:35px;
+    font-size:25px;
+    color:#984d69;
+}
+
+.nickname{
+    margin-top:10px;
+    font-size:13px;
+    letter-spacing:3px;
+    color:#a67584;
+}
+
+/* =========================
+   REVELACIÓN AL HACER SCROLL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   CONTROL DE MÚSICA
+========================= */
+
+.music-control{
+    position:fixed;
+    right:15px;
+    bottom:18px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:none;
+    background:#9e4e6b;
+    color:white;
+    font-size:19px;
+    z-index:1000;
+    box-shadow:0 8px 25px rgba(100,40,60,.25);
+    cursor:pointer;
+}
+
+.music-control:active{
+    transform:scale(.9);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+    .section{
+        padding:70px 18px;
+    }
+
+    .intro-title{
+        font-size:40px;
+    }
+
+    h1{
+        font-size:43px;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    .gallery{
+        gap:12px;
+    }
+
+    .photo-card img{
+        height:175px;
+    }
+
+    .quote{
+        font-size:23px;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
 
-<section>
-<div class="heart">💗</div>
+<!-- =========================
+     PANTALLA DE ENTRADA
+========================= -->
 
-<h1>Feliz cumpleaños, Lineeth</h1>
+<div id="intro">
 
-<p>
-Hoy quería hacer algo diferente para ti...
-algo pequeño, pero hecho especialmente para alguien que poco a poco
-se ha vuelto muy especial para mí.
-</p>
+    <div class="intro-heart">💗</div>
 
-<button onclick="document.getElementById('inicio').scrollIntoView({behavior:'smooth'})">
-Hay algo para ti ✨
+    <div class="intro-small">
+        Algo hice especialmente para ti
+    </div>
+
+    <div class="intro-title">
+        Para Lineeth
+    </div>
+
+    <div class="intro-subtitle">
+        Li · Lin · Leona ✨
+    </div>
+
+    <button class="enter-btn" onclick="enterPage()">
+        Entrar ✨
+    </button>
+
+</div>
+
+
+<!-- =========================
+     MÚSICA
+========================= -->
+
+<audio id="music" loop preload="auto">
+    <source src="accidentally-in-love.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    id="musicButton"
+    class="music-control"
+    onclick="toggleMusic()"
+    aria-label="Controlar música">
+    🎵
 </button>
+
+
+<div class="page">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="section hero">
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Hoy es un día especial
+        </div>
+
+        <h1>
+            Feliz cumpleaños,
+        </h1>
+
+        <h1 class="hero-name">
+            Lineeth 💗
+        </h1>
+
+        <div class="hero-line"></div>
+
+        <p>
+            Hoy quería hacer algo diferente para ti.
+            No algo enorme, sino algo hecho especialmente
+            para una persona que poco a poco se ha vuelto
+            especial para mí.
+        </p>
+
+        <button
+            class="main-btn"
+            onclick="document.getElementById('story').scrollIntoView()">
+            Sigue leyendo ↓
+        </button>
+
+    </div>
+
 </section>
 
 
-<section id="inicio">
+<!-- =========================
+     HISTORIA
+========================= -->
 
-<div class="card">
+<section id="story" class="section story">
 
-<h2>¿Qué hace especial a Lineeth? 🌷</h2>
+    <div class="story-card reveal">
 
-<p>
-Tu <b>carisma</b>, porque tienes esa manera tan tuya de hacer
-que cualquier momento sea más bonito.
-</p>
+        <div class="eyebrow">
+            Una pequeña curiosidad
+        </div>
 
-<p>
-Tu <b>ternura</b>, porque incluso en los pequeños detalles
-se nota la persona tan linda que eres.
-</p>
+        <h2>
+            ¿Sabías algo, Lin? ✨
+        </h2>
 
-<p>
-Y tu <b>paciencia</b>, porque demuestra mucho de la persona
-que llevas dentro.
-</p>
+        <p>
+            Lo curioso de nuestra historia es que nuestros caminos
+            ya se habían cruzado mucho antes de lo que imaginábamos.
+        </p>
 
-<button onclick="mostrarMensaje()">Hay algo más... 💌</button>
+        <p>
+            Cuando éramos niños, jugábamos juntos.
+            Aunque probablemente tú ya ni te acuerdes de eso...
+            yo sí lo recuerdo.
+        </p>
 
-<p id="mensaje" class="hidden final">
-Y aunque todavía estamos empezando a conocernos,
-me alegra muchísimo que nuestros caminos se hayan encontrado. 💗
-</p>
+        <p>
+            Y después, como si la vida hubiera decidido escribir
+            la historia a su manera, pasaron años y años sin
+            volver a encontrarnos.
+        </p>
+
+        <p>
+            Hasta que finalmente volvimos a coincidir,
+            ahora que somos jóvenes y podemos conocernos
+            de una manera completamente diferente.
+        </p>
+
+        <p class="highlight">
+            Dios sabe por qué nos hizo encontrarnos
+            justamente ahora. 🤍
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CORAZÓN INTERACTIVO
+========================= -->
+
+<section class="section interactive">
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Toca el corazón
+        </div>
+
+        <h2>
+            Hay algo más...
+        </h2>
+
+        <p>
+            Pero tendrás que descubrirlo tú.
+        </p>
+
+        <div
+            class="big-heart"
+            id="bigHeart"
+            onclick="openHeart()">
+
+            <span>♡</span>
+
+        </div>
+
+        <div
+            id="secretMessage"
+            class="secret-message">
+
+            <p>
+                Me alegra que nuestros caminos se hayan
+                vuelto a cruzar. Y aunque todavía estamos
+                empezando a conocernos, me gusta mucho
+                descubrir poco a poco la persona que eres. 💗
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALERÍA
+========================= -->
+
+<section class="section gallery-section">
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Algunos recuerdos
+        </div>
+
+        <h2>
+            Momentos que quiero guardar 📸
+        </h2>
+
+        <p>
+            Porque algunas fotos terminan siendo pequeñas
+            cápsulas de momentos que vale la pena recordar.
+        </p>
+
+    </div>
+
+
+    <div class="gallery reveal">
+
+        <div class="photo-card">
+            <img src="36001ef9-2eb9-434c-aca1-b99130d29ffa.jpeg">
+            <div class="photo-caption">
+                Un momento para recordar 🤍
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="38ebb308-4d9d-48b9-9873-71ed294a96f1.jpeg">
+            <div class="photo-caption">
+                De esos recuerdos bonitos ✨
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="436cdc33-9ba2-4c8e-bc7a-06844ced2e9c.jpeg">
+            <div class="photo-caption">
+                Una sonrisa que merece quedarse.
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="75992fc1-12b4-44cf-8d2b-15ccdb1e6fee.jpeg">
+            <div class="photo-caption">
+                Un pedacito de nuestros momentos.
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="796fe51a-6997-435f-b7a3-9789365f7611.jpeg">
+            <div class="photo-caption">
+                Y todavía quedan muchos momentos por vivir.
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="9cceeee9-3f5c-4edb-9b66-65f711c51212.jpeg">
+            <div class="photo-caption">
+                🌷
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="c42adc4d-0f35-4f1a-ada4-53863687bff3.jpeg">
+            <div class="photo-caption">
+                Para guardar en la memoria.
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="dc74fc52-0271-40e3-9ce7-fbb1d4b6395d.jpeg">
+            <div class="photo-caption">
+                Un recuerdo más de esta historia.
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="e1a320f6-8567-472d-bb10-b0665b6f42db.jpeg">
+            <div class="photo-caption">
+                Y quién sabe cuántos más vendrán. 💗
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOTO DESTACADA
+========================= -->
+
+<section class="section feature-section">
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Una pausa
+        </div>
+
+        <div class="feature-photo">
+
+            <img
+                src="436cdc33-9ba2-4c8e-bc7a-06844ced2e9c.jpeg"
+                alt="Un recuerdo especial">
+
+        </div>
+
+        <div class="feature-text">
+
+            <h2>
+                Hay personas que llegan...
+            </h2>
+
+            <p>
+                y sin darte cuenta comienzan a ocupar
+                un pequeño espacio especial en tus días.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CUMPLEAÑOS
+========================= -->
+
+<section class="section birthday">
+
+    <div class="birthday-card reveal">
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <div class="eyebrow">
+            Y ahora sí...
+        </div>
+
+        <h2>
+            Feliz cumpleaños, Li 💗
+        </h2>
+
+        <p>
+            Hoy lo importante es celebrar a la persona que eres.
+        </p>
+
+        <p>
+            Tu <strong>carisma</strong>, esa manera tan tuya
+            de hacer más bonito cualquier momento.
+        </p>
+
+        <p>
+            Tu <strong>ternura</strong>, que aparece incluso
+            en los detalles más pequeños.
+        </p>
+
+        <p>
+            Y tu <strong>paciencia</strong>, que dice mucho
+            de la linda persona que llevas dentro.
+        </p>
+
+        <p>
+            Espero que este nuevo año de tu vida esté lleno
+            de momentos que te hagan sonreír, personas que
+            te quieran bonito y muchísimas razones para ser feliz.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FRASE
+========================= -->
+
+<section class="section quote-section">
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Una frase para ti
+        </div>
+
+        <div class="quote">
+            “Caminante, no hay camino,
+            se hace camino al andar.”
+        </div>
+
+        <div class="quote-author">
+            — Antonio Machado
+        </div>
+
+        <br>
+
+        <p>
+            Y quizá nuestra historia también sea así:
+            algo que todavía estamos empezando a descubrir,
+            paso a paso. ✨
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="section final-section">
+
+    <div class="reveal">
+
+        <div class="final-heart">
+            💗
+        </div>
+
+        <div class="eyebrow">
+            Para terminar...
+        </div>
+
+        <h2>
+            Feliz cumpleaños,
+            Leona 🦁
+        </h2>
+
+        <p class="final-text">
+
+            Quizá todavía estamos escribiendo apenas
+            las primeras páginas de esta historia.
+
+            <br><br>
+
+            Pero me alegra muchísimo que nuestros caminos
+            se hayan vuelto a encontrar.
+
+            <br><br>
+
+            Gracias por dejarme conocerte un poquito más
+            cada día.
+
+            <br><br>
+
+            Espero que hoy sonrías muchísimo,
+            que disfrutes tu día y que nunca olvides
+            lo especial que eres.
+
+        </p>
+
+        <div class="signature">
+            Con cariño, 💌
+            <br>
+            Daniel
+        </div>
+
+        <div class="nickname">
+            PARA LI · LIN · LEONA
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            Volver a empezar ✨
+        </button>
+
+    </div>
+
+</section>
+
 
 </div>
-</section>
-
-
-<section>
-
-<h2>Algunos momentos 📸</h2>
-
-<p>
-Nueve recuerdos para una persona que merece muchos más.
-</p>
-
-<div class="gallery">
-
-<img src="36001ef9-2eb9-434c-aca1-b99130d29ffa.jpeg">
-<img src="38ebb308-4d9d-48b9-9873-71ed294a96f1.jpeg">
-<img src="436cdc33-9ba2-4c8e-bc7a-06844ced2e9c.jpeg">
-<img src="75992fc1-12b4-44cf-8d2b-15ccdb1e6fee.jpeg">
-<img src="796fe51a-6997-435f-b7a3-9789365f7611.jpeg">
-<img src="9cceeee9-3f5c-4edb-9b66-65f711c51212.jpeg">
-<img src="c42adc4d-0f35-4f1a-ada4-53863687bff3.jpeg">
-<img src="dc74fc52-0271-40e3-9ce7-fbb1d4b6395d.jpeg">
-<img src="e1a320f6-8567-472d-bb10-b0665b6f42db.jpeg">
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="card">
-
-<h2>Una pequeña frase para ti 🌙</h2>
-
-<p class="final">
-“Caminante, no hay camino, se hace camino al andar.”
-</p>
-
-<p class="small">
-— Antonio Machado
-</p>
-
-<p>
-Y quién sabe... quizá este sea solamente
-el comienzo de un camino bonito. ✨
-</p>
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="heart">🎂</div>
-
-<h2>Feliz cumpleaños, Lineeth 💗</h2>
-
-<p>
-Espero que este nuevo año de tu vida venga lleno de momentos
-que te hagan sonreír, personas que te quieran bonito
-y muchos motivos para ser feliz.
-</p>
-
-<p class="final">
-Gracias por dejarme conocerte un poquito más cada día.
-</p>
-
-<p>Con cariño, 💌</p>
-
-<h2>Daniel</h2>
-
-<p class="small">
-Hecho especialmente para ti.
-</p>
-
-</section>
 
 
 <script>
-function mostrarMensaje(){
-document.getElementById("mensaje").classList.remove("hidden");
+
+/* =========================
+   ENTRAR A LA PÁGINA
+========================= */
+
+function enterPage(){
+
+    const intro = document.getElementById("intro");
+    const music = document.getElementById("music");
+
+    intro.classList.add("hide");
+
+    music.volume = 0.55;
+
+    music.play().catch(function(){
+        console.log("El navegador bloqueó la reproducción automática.");
+    });
+
 }
+
+
+/* =========================
+   CONTROL DE MÚSICA
+========================= */
+
+function toggleMusic(){
+
+    const music = document.getElementById("music");
+    const button = document.getElementById("musicButton");
+
+    if(music.paused){
+
+        music.play();
+
+        button.textContent = "🎵";
+
+    }else{
+
+        music.pause();
+
+        button.textContent = "🔇";
+
+    }
+
+}
+
+
+/* =========================
+   CORAZÓN
+========================= */
+
+function openHeart(){
+
+    const heart = document.getElementById("bigHeart");
+    const message = document.getElementById("secretMessage");
+
+    heart.classList.add("open");
+
+    heart.querySelector("span").textContent = "♥";
+
+    message.classList.add("show");
+
+}
+
+
+/* =========================
+   ANIMACIONES AL HACER SCROLL
+========================= */
+
+const observer = new IntersectionObserver(
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.15
+    }
+);
+
+
+document.querySelectorAll(".reveal").forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+/* =========================
+   CORAZONES FLOTANTES
+========================= */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+
+    const hearts = ["💗","♡","💕","✨","💖"];
+
+    heart.textContent =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+
+        heart.remove();
+
+    },10000);
+
+}
+
+
+setInterval(createHeart,1800);
+
 </script>
 
 </body>

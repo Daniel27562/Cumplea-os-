@@ -1,1 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lineeth 💗</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#fff0f5,#fce4ec,#f8e8ff);
+color:#604052;
+text-align:center;
+}
+
+section{
+min-height:100vh;
+padding:60px 20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1{
+font-size:48px;
+margin:10px;
+color:#c85b83;
+}
+
+h2{
+font-size:32px;
+color:#b34f76;
+}
+
+p{
+max-width:600px;
+font-size:18px;
+line-height:1.7;
+}
+
+.heart{
+font-size:70px;
+animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+50%{transform:scale(1.15)}
+}
+
+button{
+border:0;
+border-radius:30px;
+padding:15px 28px;
+background:#d96b95;
+color:white;
+font-size:16px;
+margin:15px;
+box-shadow:0 8px 20px #d96b9544;
+}
+
+button:active{
+transform:scale(.95);
+}
+
+.card{
+background:#ffffffb8;
+backdrop-filter:blur(10px);
+border-radius:30px;
+padding:30px;
+max-width:650px;
+box-shadow:0 15px 40px #9b567322;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+max-width:650px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 8px 20px #0002;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+.hidden{
+display:none;
+}
+
+.final{
+font-size:22px;
+color:#a84770;
+font-weight:bold;
+}
+
+.small{
+font-size:14px;
+opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<section>
+<div class="heart">💗</div>
+
+<h1>Feliz cumpleaños, Lineeth</h1>
+
+<p>
+Hoy quería hacer algo diferente para ti...
+algo pequeño, pero hecho especialmente para alguien que poco a poco
+se ha vuelto muy especial para mí.
+</p>
+
+<button onclick="document.getElementById('inicio').scrollIntoView({behavior:'smooth'})">
+Hay algo para ti ✨
+</button>
+</section>
+
+
+<section id="inicio">
+
+<div class="card">
+
+<h2>¿Qué hace especial a Lineeth? 🌷</h2>
+
+<p>
+Tu <b>carisma</b>, porque tienes esa manera tan tuya de hacer
+que cualquier momento sea más bonito.
+</p>
+
+<p>
+Tu <b>ternura</b>, porque incluso en los pequeños detalles
+se nota la persona tan linda que eres.
+</p>
+
+<p>
+Y tu <b>paciencia</b>, porque demuestra mucho de la persona
+que llevas dentro.
+</p>
+
+<button onclick="mostrarMensaje()">Hay algo más... 💌</button>
+
+<p id="mensaje" class="hidden final">
+Y aunque todavía estamos empezando a conocernos,
+me alegra muchísimo que nuestros caminos se hayan encontrado. 💗
+</p>
+
+</div>
+</section>
+
+
+<section>
+
+<h2>Algunos momentos 📸</h2>
+
+<p>
+Nueve recuerdos para una persona que merece muchos más.
+</p>
+
+<div class="gallery">
+
+<img src="36001ef9-2eb9-434c-aca1-b99130d29ffa.jpeg">
+<img src="38ebb308-4d9d-48b9-9873-71ed294a96f1.jpeg">
+<img src="436cdc33-9ba2-4c8e-bc7a-06844ced2e9c.jpeg">
+<img src="75992fc1-12b4-44cf-8d2b-15ccdb1e6fee.jpeg">
+<img src="796fe51a-6997-435f-b7a3-9789365f7611.jpeg">
+<img src="9cceeee9-3f5c-4edb-9b66-65f711c51212.jpeg">
+<img src="c42adc4d-0f35-4f1a-ada4-53863687bff3.jpeg">
+<img src="dc74fc52-0271-40e3-9ce7-fbb1d4b6395d.jpeg">
+<img src="e1a320f6-8567-472d-bb10-b0665b6f42db.jpeg">
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="card">
+
+<h2>Una pequeña frase para ti 🌙</h2>
+
+<p class="final">
+“Caminante, no hay camino, se hace camino al andar.”
+</p>
+
+<p class="small">
+— Antonio Machado
+</p>
+
+<p>
+Y quién sabe... quizá este sea solamente
+el comienzo de un camino bonito. ✨
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="heart">🎂</div>
+
+<h2>Feliz cumpleaños, Lineeth 💗</h2>
+
+<p>
+Espero que este nuevo año de tu vida venga lleno de momentos
+que te hagan sonreír, personas que te quieran bonito
+y muchos motivos para ser feliz.
+</p>
+
+<p class="final">
+Gracias por dejarme conocerte un poquito más cada día.
+</p>
+
+<p>Con cariño, 💌</p>
+
+<h2>Daniel</h2>
+
+<p class="small">
+Hecho especialmente para ti.
+</p>
+
+</section>
+
+
+<script>
+function mostrarMensaje(){
+document.getElementById("mensaje").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
